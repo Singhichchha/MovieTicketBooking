@@ -1,0 +1,63 @@
+show databases;
+
+create database Ticket;
+use Ticket;
+
+
+-- TABLE THAEATRE CREATED
+drop table THEATRE;
+create table THEATRE(
+movie_id int auto_increment primary key,
+th_name varchar(100),
+movie_name varchar(100),
+duration int,
+slot varchar(100),
+movie_date varchar(100),
+location varchar(100),
+price int,
+avail_seats int
+)auto_increment = 1011;
+
+
+
+insert into THEATRE (movie_id, th_name, movie_name, duration, slot, movie_date, location, price, avail_seats)
+values (1001, 'PVR', 'Inception', 148, '9:00 AM', '01/04/2024', 'Phoenix United Mall, Alambagh', 300, 50),
+(1002, 'PVR', '3 Idiots', 170, '2:00 PM', '01/04/2024', 'Phoenix United Mall, Alambagh', 250, 10),
+(1003, 'Wave Cinemas', 'Barbie', 114, '9:00 AM', '01/04/2024', 'Wave Mall, GomtiNagar', 350, 40),
+(1004, 'INOX', 'Inception', 148, '9:00 AM', '01/04/2024', 'Crown Mall, Tiwariganj', 250, 40),
+(1005, 'Fun Cinemas', 'Barbie', 114, '1:00 PM', '01/04/2024', 'Fun Republic Mall', 300, 40),
+(1006, 'INOX', 'Toy Story', 81, '1:00 PM', '02/04/2024', 'Crown Mall, Tiwariganj', 300, 25),
+(1007, 'CinePolis', 'Titanic', 195, '7:00 PM', '02/04/2024', 'One Awadh Centre Mall, GomtiNagar', 350, 60),
+(1008, 'CinePolis', 'Kal ho na ho', 189, '9:00 AM', '02/04/2024', 'One Awadh Centre Mall, GomtiNagar', 300, 50),
+(1009, 'Wave Cinemas', 'Kal ho na ho', 189, '7:00 PM', '02/04/2024', 'Wave Mall, GomtiNagar', 200, 10),
+(1010, 'Fun Cinemas', 'Avatar', 162, '9:00 AM', '02/04/2024', 'Fun Republic Mall', 250, 05),
+(1011, 'PVR', 'The Dark Knight', 152, '9:00 AM', '03/04/2024', 'Phoenix United Mall, Alambagh', 300, 60),
+(1012, 'PVR', 'The Avengers', 143, '2:00 PM', '03/04/2024', 'Phoenix United Mall, Alambagh', 250, 70),
+(1013, 'Wave Cinemas', 'Toy Story', 81, '9:00 AM', '03/04/2024', 'Wave Mall, GomtiNagar', 350, 50),
+(1014, 'Wave Cinemas', 'The Lion King', 88, '7:00 PM', '03/04/2024', 'Wave Mall, GomtiNagar', 200, 80),
+(1015, 'INOX', 'Star Wars', 121, '2:00 PM', '03/04/2024', 'Crown Mall, Tiwariganj', 300, 85),
+(1016, 'INOX', 'Avengers', 143, '9:00 AM', '03/04/2024', 'Crown Mall, Tiwariganj', 250, 20),
+(1017, 'CinePolis', 'The Matrix', 136, '7:00 PM', '03/04/2024', 'One Awadh Centre Mall, GomtiNagar', 350, 65),
+(1018, 'CinePolis', 'The Lord of the Rings', 178, '2:00 PM', '03/04/2024', 'One Awadh Centre Mall, GomtiNagar', 300, 55),
+(1019, 'Fun Cinemas', 'Frozen', 102, '2:00 PM', '03/04/2024', 'Fun Republic Mall', 350, 45),
+(1020, 'Fun Cinemas', '3 Idiots', 100, '9:00 AM', '03/04/2024', 'Fun Republic Mall', 250, 50);
+
+drop table booking;
+
+create table BOOKING(
+booking_id varchar(100) primary key,
+user_name varchar(100),
+mobile_no varchar(100),
+movie_id int,
+booked_seat int,
+price int,
+booking_date timestamp DEFAULT current_timestamp(),
+foreign key (movie_id) references THEATRE(movie_id));
+
+select * from BOOKING;
+
+
+select * from theatre;
+
+desc theatre;
+desc booking;
